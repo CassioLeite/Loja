@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 function usuarioEstaLogado(){
     return isset($_SESSION["usuario_logado"]);
 }

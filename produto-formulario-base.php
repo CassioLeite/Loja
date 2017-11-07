@@ -1,16 +1,16 @@
-<input type="hidden" name="id" value="<?= $produto['id'] ?>">
+<input type="hidden" name="id" value="<?= $produto->getId() ?>">
             <tr>
                 <td>Nome: </td>
-                <td><input class="form-control" name="nome" type="text" value="<?= $produto['nome']?>"></td>
+                <td><input class="form-control" name="nome" type="text" value="<?= $produto->getNome() ?>"></td>
             </tr>
             <tr>
                 <td>Preço: </td>
-                <td><input class="form-control" name="preco" type="number" value="<?= $produto['preco']?>"></td>
+                <td><input class="form-control" name="preco" type="number" value="<?= $produto->getPreco() ?>"></td>
             </tr>
             <tr>
                 <td>Descrição: </td>
                 <td>
-                    <textarea class="form-control" name="descricao"><?= $produto['descricao']?></textarea>
+                    <textarea class="form-control" name="descricao"><?= $produto->getDescricao() ?></textarea>
                 </td>
             </tr>
             <tr>
@@ -19,11 +19,11 @@
                     <select name="categoria_id" class="form-control">
                         <?php
                         foreach($categorias as $categoria):    
-                            $essaEhACategoria = $produto['categoria_id'] == $categoria['id'];
+                            $essaEhACategoria = $produto->getCategoria()->getId() == $categoria->getId();
                             $selecao = $essaEhACategoria ? "selected='selected'" : "";
                             
                         ?>
-                        <option value="<?= $categoria['id']?>" <?= $selecao?>><?= $categoria['nome']?></option>
+                        <option value="<?= $categoria->getId()?>" <?= $selecao?>><?= $categoria->getNome()?></option>
                         <?php
                         endforeach;    
                         ?>
